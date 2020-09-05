@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QRコード生成</title>
+</head>
+<body>
+    <h1>QRコード生成</h1>
+    <form action="/qrcc" method="POST">
+        <p>URL：<input type="text" name="urlqr" size="40">
+        </p>
+        <button type="submit">生成</button>
+    </form>
+    <img src="{{ qrcodeimage }}" alt="qrcode">
+</body>
+</html>
