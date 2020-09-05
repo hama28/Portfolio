@@ -17,12 +17,22 @@ def portfolio():
     return render_template('portfolio.html')
 
 
-@app.route('/qrcoder')
+@app.route('/works/myprpage')
+def myprpage():
+    return render_template('works/myprpage.html')
+
+
+@app.route('/works/mygoalpage')
+def mygoalpage():
+    return render_template('works/mygoalpage.html')
+
+
+@app.route('/works/qrcoder')
 def qrcoder():
-    return render_template('qrcoder.html', qrcodeimage='/static/images/blank.gif')
+    return render_template('works/qrcoder.html', qrcodeimage='/static/images/blank.gif')
 
 
-@app.route('/qrcc', methods=['POST'])
+@app.route('/works/qrcc', methods=['POST'])
 def qrcc():
     # 生成するQRcodeの詳細設定
     qr = qrcode.QRCode(
@@ -47,7 +57,7 @@ def qrcc():
     # 現在日時を取得
     ctime = str(datetime.datetime.now())
     # キャッシュの画像が表示されないようにパスの後ろに日時を追加
-    return render_template('qrcoder.html', qrcodeimage=('/' + imgurl + '?' + ctime))
+    return render_template('works/qrcoder.html', qrcodeimage=('/' + imgurl + '?' + ctime))
 
 
 

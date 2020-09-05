@@ -1,0 +1,441 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    font-family: '游ゴシック', 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro',  メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+    transition: all 1s;
+  }
+
+  h1 {
+    font-family: 'M+ P Type-1 (basic latin) Black';
+  }
+
+  h2 {
+    font-family: 'M+ P Type-1 (basic latin) Black';
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  .clear {
+    clear: left;
+  }
+  
+  .container {
+    max-width: 1170px;
+    width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+  }
+
+  .container h2 {
+    font-size: 40px;
+    letter-spacing: 10px;
+  }
+  
+  .top-wrapper {
+    padding: 300px 0 180px 0;
+    background-color: #90CAF9;
+    background-size: cover;
+    color: black;
+    text-align: center;
+  }
+  
+  .top-wrapper h1 {
+    opacity: 0.7;
+    font-size: 50px;
+    letter-spacing: 10px;
+  }
+  
+  .top-wrapper p {
+    opacity: 0.7;
+    font-size: 16px;
+    margin-bottom: 40px;
+  }
+  
+  header {
+    height: 65px;
+    width: 100%;
+    background-color: #0D47A1;
+    position :fixed;
+    top: 0;
+    z-index: 10;
+  }
+  
+  .logo {
+    width: 150px;
+    height: 50px;
+    margin-top: 10px;
+  }
+  
+  .header-left {
+    float: left;
+  }
+  
+  .header-right {
+    float: right;
+  }
+  
+  .header-right a {
+    line-height: 65px;
+    padding: 0 20px;
+    color: white;
+    display: block;
+    float: left;
+    transition: all 0.5s;
+  }
+  
+  .header-right a:hover {
+    background-color: rgba(255,255,255,0.3);
+  }
+  
+  .menu-icon {
+    color: white;
+    float: right;
+    font-size: 25px;
+    padding: 21px 0;
+    display: none;
+  }
+  
+  .profile-wrapper {
+    padding-bottom: 300px;
+    padding-left: 5%;
+    padding-right: 5%;
+    background-color: #f7f7f7;
+    text-align: center;
+  }
+
+  .profile-left {
+    padding-top: 100px;
+    float: left;
+    width: 50%;
+  }
+
+  .profile-right {
+    float: right;
+    width: 50%;
+    text-align: left;
+  }
+
+  .btn-wrapper {
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  .btn-wrapper p {
+    margin-bottom: 20px;
+  }
+  
+  .github {
+    background-color: gray;
+  }
+  
+  .facebook {
+    background-color: #3b5998;
+  }
+  
+  .twitter {
+    background-color: #55acee;
+  }
+  
+  .btn {
+    padding: 8px 24px;
+    color: white;
+    display: inline-block;
+    opacity: 0.8;
+    border-radius: 4px;
+    text-align: center;
+  }
+  
+  .btn:hover {
+    opacity: 1;
+  }
+  
+
+  .like-wrapper img:hover {
+    opacity: 0.8;
+  }
+
+  .now-wrapper img:hover {
+    opacity: 0.8;
+  }
+
+  .mirai-wrapper img:hover {
+    opacity: 0.8;
+  }
+
+  .goal-wrapper img:hover {
+    opacity: 0.8;
+  }
+
+  .fa {
+    margin-right: 5px;
+  }
+
+  .like-wrapper {
+    padding-bottom: 80px;
+    padding-left: 5%;
+    padding-right: 5%;
+    background-color: #daf0ff;
+    text-align: center;
+  }
+
+  .now-wrapper {
+    padding-bottom: 80px;
+    padding-left: 5%;
+    padding-right: 5%;
+    background-color: #f7f7f7;
+    text-align: center;
+  }
+
+  .mirai-wrapper {
+    padding-bottom: 80px;
+    padding-left: 5%;
+    padding-right: 5%;
+    background-color: #daf0ff;
+    text-align: center;
+  }
+
+  .goal-wrapper {
+    padding-bottom: 80px;
+    padding-left: 5%;
+    padding-right: 5%;
+    background-color: #daf0ff;
+    text-align: center;
+  }
+
+  .path-wrapper {
+    height: 2000px;
+    padding-bottom: 80px;
+    padding-left: 5%;
+    padding-right: 5%;
+    background-color: #ffffff;
+    text-align: center;
+    background-image: url("../image/goal/path-bg-cover-big.png");
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .path {
+    overflow: hidden;
+    background-color: #ffffffbb;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    width: 80%;
+    padding-top: 10px;
+    padding-bottom: 40px; 
+  }
+
+  .path-left {
+    float: left;
+    width: 40%;
+    padding-left: 10%;
+    margin: 30px 0;
+  }
+
+  .path-right {
+    float: left;
+    width: 60%;
+  }
+
+  .path-right .text-contents {
+    margin-top: 50px;
+    margin-bottom: 10px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 35px;
+  }
+
+  .path-right p {
+    margin-top: 10px;
+    text-align: left;
+    font-size: 20px;
+  }
+
+
+  .heading {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    color: #5f5d60;
+  }
+  
+  .heading h2 {
+    font-weight: bold;
+  }
+  
+  .area {
+    float: left;
+    width: 25%;
+  }
+  
+  .area-icon {
+    position: relative;
+  }
+  
+  .area-icon p {
+    position: absolute;
+    top: 90%;
+    width: 100%;
+    font-size: 20px;
+    font-weight: 700;
+    color: #575c63;
+  }
+  
+  .text-contents {
+    width: 80%;
+    display: inline-block;
+    margin-top: 25px;
+    font-size: 15px;
+    color: #575c63;
+  }
+  
+  .heading h3 {
+    font-weight: normal;
+  }
+  
+  .message-wrapper {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    text-align: center;
+    background-color: #f7f7f7;
+  }
+  
+  .message-wrapper .heading {
+    margin-bottom: 10px;
+  }
+
+  .message-wrapper h3 {
+    margin-bottom: 30px;
+  }
+
+  .form-left {
+    float: left;
+    width: 50%;
+    text-align: left;
+    padding-left: 25%;
+  }
+
+  .form-right {
+    float: left;
+    width: 50%;
+    text-align: left;
+    padding-right: 25%;
+  }
+
+  label {
+    display:block;
+    margin-top: 10px;
+  }
+
+  textarea{
+    width:100%;
+    height:100px;
+    resize:vertical;
+  }
+
+  #name, #email {
+    width: 90%;
+  }
+
+  .send-form {
+    padding: 8px 24px;
+    margin: 20px 0;
+    color: white;
+    background: #5d89ca;
+    display: inline-block;
+    border-radius: 4px;
+    opacity: 0.8;
+    text-align: center;
+    cursor: pointer;
+    border-style: none;
+  }
+
+  .page-move {
+    padding: 15px 40px;
+    background-color: #5d89ca;
+    cursor: pointer;
+    box-shadow: 0px 7px #1a4079;
+  }
+  
+  .page-move:active {
+    position: relative;
+    top: 7px;
+    box-shadow: none;
+  }
+  
+  .page-wrapper {
+    padding: 40px 0;
+    padding-left: 5%;
+    padding-right: 5%;
+    background-color: #daf0ff;
+    text-align: center;
+  }
+
+  button {
+    border: none;
+    border-style: none;
+    margin: 10px;
+  }
+
+  footer {
+    background-color: #0D47A1;
+  }
+
+  footer img {
+    width: 125px;
+  }
+  
+  footer p {
+    color: #b3aeb5;
+    font-size: 12px;
+  }
+  
+  footer {
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 20px;
+  }
+  
+  .menu-icon {
+    color: white;
+    float: right;
+    font-size: 25px;
+    padding: 21px 0;
+    display: none;
+  }
+  
+  .clear {
+    clear: left;
+  }
+  
+/* ここからanime */
+  .bodyfadeout {
+    opacity: 0;
+  }
+
+  #cover {
+    width: 0;
+    height: 2000%;
+    background-image: url("../image/cover.png");
+    background-color: black;
+    border: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+  }
+
+  .anime5 {
+    animation: animemove5 0.7s linear forwards;
+  }
+
+  @keyframes animemove5 {
+    0% {}
+    100% {
+        width: 100%;
+    }
+  }

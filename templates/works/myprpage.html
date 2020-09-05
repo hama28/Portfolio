@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="自己紹介のページです。">
+        <title>トップページ || 畑の自己紹介サイト</title>
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" 
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="/static/css/mypr/stylesheet.css">
+        <link rel="stylesheet" type="text/css" href="/static/css/mypr/responsive.css">
+        <link rel="stylesheet" type="text/css" href="http://mplus-fonts.sourceforge.jp/webfonts/basic_latin/mplus_webfonts.css">
+        <link rel="stylesheet" type="text/css" href="http://mplus-fonts.sourceforge.jp/webfonts/general-j/mplus_webfonts.css">
+        <script type="text/javascript" src="/static/js/mypr/jquery-3.5.1.js"></script>
+        <script type="text/javascript" src="/static/js/mypr/script.js"></script>
+        <script type="text/javascript" src="/static/js/mypr/anime.min.js"></script>
+        <style>
+            #cover {
+                width: 0;
+                height: 2000%;
+                background-image: url("/static/images/mypr/cover.png");
+                background-color: black;
+                border: none;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 999;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <div id="nav-drawer">
+                <input id="nav-input" type="checkbox" class="nav-unshown">
+                <label id="nav-open" for="nav-input"><span class="fa fa-bars menu-icon"></span></label>
+                <label class="nav-unshown" id="nav-close" for="nav-input"></label>
+                <div id="nav-content">
+                    <ul>
+                        <li><a href="#">Top</a></li>
+                        <li><a href="#Profile">Profile</a></li>
+                        <li><a href="#Like">Like</a></li>
+                        <li><a href="#Now">Now</a></li>
+                        <li><a href="#Mirai">Mirai</a></li>
+                        <li><a href="#Contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="container">
+                <div class="header-left">
+                    <img class="logo" src="/static/images/mypr/logo.png">
+                </div>
+                <div class="header-right">
+                    <a href="#">Top</a>
+                    <a href="#Profile">Profile</a>
+                    <a href="#Like">Like</a>
+                    <a href="#Now">Now</a>
+                    <a href="#Mirai">Mirai</a>
+                    <a href="#Contact">Contact</a>
+                </div>
+            </div>
+        </header>
+        <div class="top-wrapper">
+            <div class="container">
+                <h1>HELLO 世界！</h1>
+                <p>コンセプトはフラット＆レスポンシブ<br>
+                どんな人が見ても、どんな環境で見ても<br>
+                「見やすい」を目指して作りました
+                </p>
+            </div>
+        </div>
+        <div class="profile-wrapper" id="Profile">
+            <div class="container">
+                <div class="heading">
+                    <h2>Profile</h2>
+                    <p>マイプロフィール</p>
+                </div>
+                <div class="areas">
+                    <div class="profile-left">
+                        <div class="area-icon">
+                            <img src="/static/images/mypr/profile.png">
+                            <p>name:  hata masaru</p>
+                        </div>
+                    </div>
+                    <div class="profile-right">
+                        <p>はじめまして、こんにちは。畑優と申します。<br>
+                        京都府亀岡市の出身です。亀岡市は「霧の都 亀岡」と言われるほど、冬は霧が深くなります。
+                        100m先が見えないくらい濃霧になることが多く、ホラーゲームの
+                        <a class="thumb" href="https://pickles.tv/works/silent_hill/" target="blank">『サイレントヒル』</a>や
+                        <a class="thumb" href="https://www.youtube.com/watch?v=LhCKXJNGzN8" target="blank">
+                        映画『ミスト』</a>のような世界を体験できます。<br>
+                        <a class="thumb" href="https://www.kyotoside.jp/entry/20191119" target="blank">「かめおか霧のテラス」</a>と
+                        呼ばれる絶景スポットもあるので、遊びに来てくださいね～。</p>
+                        <p>
+                        前職はゲーム開発会社にて、ゲームの開発･検証や、企画提案、それからWebディレクターとして
+                        <a class="thumb" href="https://fecipher.jp/" target="blank">サイト</a>
+                        の運営・管理を行っていました。<br>
+                        Webディレクターとは言うものの、コーディングをしていた訳ではなく、リアルイベントに合わせたWebページの企画を考えたり、
+                        既存ページの改修プランを立てたりと、プランナー的な仕事をしていました。<br>
+                        なので、実際にコーディングをやり始めたのは最近です。</p>
+                        <p>現在はWebサービスのリリースを目指して開発をしています。<br>
+                        0からリリースまでの流れ(設計→開発→公開→運用･保守)を経験したいと思い、開発を始めました。知らなかったことばかりで、
+                        毎日ヒーヒー言ってますが、その辛さ以上に、知らない世界を体験できるのが楽しいです。</p>
+                        <div class="btn-wrapper">
+                            <a href="https://github.com/hama28" target="blank" class="btn github"><span class="fa fa-github"></span>GitHub</a>
+                            <a href="https://www.facebook.com/profile.php?id=100004084881847" target="blank" class="btn facebook"><span class="fa fa-facebook"></span>Facebook</a>
+                            <a href="https://twitter.com/ha_ma_28" target="blank" class="btn twitter"><span class="fa fa-twitter"></span>Twitter</a>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+        <div class="like-wrapper" id="Like">
+            <div class="container">
+                <div class="heading">
+                    <h2>Like</h2>
+                    <p>好きなものは「ボードゲーム」<br>
+                    オススメ４選</p>
+                </div>
+                <div class="areas">
+                    <div class="area">
+                        <div class="area-icon">
+                            <a href="https://hobbyjapan.co.jp/dixit/" target="blank"><img src="/static/images/mypr/dixit.png"></a>
+                            <p>Dixit</p>
+                        </div>
+                        <p class="text-contents">『一枚の絵は、千の言葉に値する！』が、このボードゲームのキャッチコピーです。
+                            絵がカード全面に描かれていて、文字はありません。そう、このボードゲームは文字が読めなくても遊べます。
+                            なので、小さいお子様から細かい文字の読みにくい高齢の方まで、誰でも一緒に楽しめます。また、「たった一つの正解」というものがなく、
+                            参加したプレイヤーによって「正解」が変わるので、気楽に遊べるゲームです。見ているだけでも絵画鑑賞のように楽しめます。</p>
+                    </div>
+                    <div class="area">
+                        <div class="area-icon">
+                            <a href="http://www.groupsne.co.jp/products/bg/bs/index.html" target="blank"><img src="/static/images/mypr/blackstories.png"></a>
+                            <p>ブラックストーリーズ</p>
+                        </div>
+                        <p class="text-contents">ジャンル「シチュエーションパズル」。水平思考推理ゲームや、yes/noパズルとも言われるものです。
+                            このゲームは大人向けです(ブラックユーモアを多分に含みます)。日本で有名な問いは「ウミガメのスープ」。
+                            「ある男は、レストランで「ウミガメのスープ」を注文し飲みました。男は帰宅し、自殺しました。なぜ？」といったかんじです。
+                            頭を柔らかくして考えるのが好きな人や、思考が閃く瞬間が好きな人にオススメです。
+                            悩みに悩んだ末に閃いたときには、思わず「Eureka!」と叫んでしまうかもしれません。</p>
+                    </div>
+                    <div class="area">
+                        <div class="area-icon">
+                            <a href="https://www.gamemarket.jp/game/57558" target="blank"><img src="/static/images/mypr/tunda.png"></a>
+                            <p>ツンダール</p>
+                        </div>
+                        <p class="text-contents">「シンプル・イズ・ベスト」なボードゲーム。とても簡単なルールで、すぐに遊べます。
+                            このゲームもカードにはイラストのみが描かれていて、文字を必要としません。ゲームシステムも『テトリス』や『ぷよぷよ』のような直感的なものなので、
+                            一回遊んでみるとすぐにゲームシステムを把握できます。運の要素も強いゲームなので、年齢や経験に関係なく遊べます。
+                            トランプと同じくらいの大きさなので、持ち運びやすいところもグッドポイント！</p>
+                    </div>
+                    <div class="area">
+                        <div class="area-icon">
+                            <a href="https://ja.boardgamearena.com/" target="blank"><img src="/static/images/mypr/bga.png"></a>
+                            <p>BGA</p>
+                        </div>
+                        <p class="text-contents">『ボードゲームアリーナ』。世界最大のオンラインでボードゲームが遊べる神サービスです。
+                            300の国々から参加でき、41の言語に翻訳されています。遊べるゲームは190を超え、300万人以上の登録者がいます(私もその1人)。
+                            最も素晴らしい点が、ブラウザで遊べることです。PC、スマホ、タブレット、PlayStationやXboxなど、
+                            あらゆる環境からでもブラウザを通して遊べます(もちろんクロスプレイで！)。
+                            世界的な「StayHome」の時期には、その影響でサーバがパンクするほど人気でした。興味のある方はお試しあれ。</p>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="now-wrapper" id="Now">
+            <div class="container">
+                <div class="heading">
+                    <h2>Now</h2>
+                    <p>現在勉強中のスキル</p>
+                </div>
+                <div class="areas">
+                    <div class="area">
+                        <div class="area-icon">
+                            <a href="https://ja.reactjs.org/" target="blank"><img src="/static/images/mypr/front.png"></a>
+                            <p>React</p>
+                        </div>
+                        <p class="text-contents">触りだして2日。フロントエンドの実装によく使われているので勉強しています。
+                            フロントで処理して動的に動かせる点が面白い。ReactNativeを使えばネイティブアプリの開発もできるので、SPAの開発をやってみたい。</p>
+                    </div>
+                    <div class="area">
+                        <div class="area-icon">
+                            <a href="https://github.com/rails/rails" target="blank"><img src="/static/images/mypr/ruby.png"></a>
+                            <p>Ruby on Rails</p>
+                        </div>
+                        <p class="text-contents">触りだして2週間くらい。どの言語に手を出すか、PythonやPHPと悩みましたが、実際に触ってみて一番書きやすかったのがRubyでした。
+                            フレームワークが便利すぎて、フレームワークなしでは生きられない身体に。</p>
+                    </div>
+                    <div class="area">
+                        <div class="area-icon">
+                            <a href="https://www.sqlite.org/index.html" target="blank"><img src="/static/images/mypr/db.png"></a>
+                            <p>SQLite</p>
+                        </div>
+                        <p class="text-contents">Railsのデフォルトデータベース。なので、気づいたら触ってた。軽量で扱いやすいらしいが、
+                            他を知らないので利便性を感じたことはない。フロントエンドがある程度できるようになってからMySQLの勉強を始める予定。</p>
+                    </div>
+                    <div class="area">
+                        <div class="area-icon">
+                            <a href="https://github.com/" target="blank"><img src="/static/images/mypr/github.png"></a>
+                            <p>GitHub</p>
+                        </div>
+                        <p class="text-contents">ソースコード管理。最近、リモートリポジトリの設定を学び、コードを共有してどこでも開発できるようになった。
+                            最初はGitの設定に苦戦したが、今となってはGit無しとかありえん身体に。複数人での開発の経験もしてみたい。</p>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="mirai-wrapper" id="Mirai">
+            <div class="container">
+                <div class="heading">
+                    <h2>Mirai</h2>
+                    <p>これから習得していくスキル</p>
+                </div>
+                <div class="areas">
+                    <div class="area">
+                        <div class="area-icon">
+                            <a href="https://aws.amazon.com/jp/" target="blank"><img src="/static/images/mypr/cloud.png"></a>
+                            <p>クラウド</p>
+                        </div>
+                        <p class="text-contents">AWSやGCPといったクラウドインフラ。今や常識になっているので、クラウドサーバでの開発を経験したい。
+                            フロントエンドがある程度できるようになってから、AWSなどを使ってサービスのリリースを目指す。</p>
+                    </div>
+                    <div class="area">
+                        <div class="area-icon">
+                            <a href="https://www.docker.com/" target="blank"><img src="/static/images/mypr/box.png"></a>
+                            <p>Docker</p>
+                        </div>
+                        <p class="text-contents">コンテナ仮想化でよく聞くやつ。今のところさっぱり分からん。説明を聞いて便利なのは分かるが、
+                            体験してみないとなんとも…。クラウドでも使えるみたいなので、AWSなどと一緒に使ってみる。</p>
+                    </div>
+                    <div class="area">
+                        <div class="area-icon">
+                            <a href="https://aws.amazon.com/jp/training/learning-paths/machine-learning/" target="blank"><img src="/static/images/mypr/deeplearning.png"></a>
+                            <p>人工知能</p>
+                        </div>
+                        <p class="text-contents">機械学習。最近よく見るLINEのチャットボットとかを作ってみたい。特に、自然言語処理が気になる。
+                            機械学習はPythonが強く、Rubyはライブラリが少ないのが残念…。Pythonの勉強もしたい。</p>
+                    </div>
+                    <div class="area">
+                        <div class="area-icon">
+                            <a href="https://firebase.google.com/?hl=ja" target="blank"><img src="/static/images/mypr/firebase.png"></a>
+                            <p>Firebase</p>
+                        </div>
+                        <p class="text-contents">超高速でアプリの開発ができるプラットフォーム。調べれば調べるほど面白そうで、早く触ってみたい。
+                            Amazonが提供しているAmplifyも気になる。</p>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="message-wrapper" id="Contact">
+            <div class="container">
+                <div class="heading">
+                    <h2>Contact</h2>
+                    <h3>このWebサイトについて、私について、サイトの感想など、<br>
+                        なにかコメントがありましたら下記のフォームをご利用ください。<br>
+                        ※このフォームは形だけです。実際に送信はできません。</h3>
+                    <form action="fake.php" method="post">
+                        <div class="form-left">
+                        <label class="label" for="name">名前</label>
+                        <input id="name" type="text" name="name">
+                        <label class="label" for="email">メールアドレス</label>
+                        <input id="email" type="email" name="email">
+                        </div>
+                        <div class="form-right">
+                        <label class="label" for="message">メッセージ</label>
+                        <textarea id="message" name="comment"></textarea>
+                        </div>
+                        <div class="clear"></div>
+                        <input type="submit" value="送信" class="send-form">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="page-wrapper">
+            <div class="container">
+                <div class="heading">
+                    <h2>ページリンク</h2>
+                </div>
+                <div id="cover"></div>
+                <button class="btn page-move" id="button1">目標ページ</button>
+                <button class="btn page-move" id="button2">ポートフォリオ</button>
+            </div>
+        </div>
+        <footer>
+            <div class="container">
+                <img src="/static/images/mypr/logo.png">
+                <p>Copyright © 2020 hata All Rights Reserved.</p>
+            </div>
+        </footer>
+        <script>
+            const body = document.getElementsByTagName('body')[0];
+            function fadeOut() {
+                body.classList.add('bodyfadeout');
+            }
+            function fadeIn() {
+                location.href = '/works/mygoalpage'
+            }
+            var bt5 = document.getElementById('button1');
+            var a = document.getElementById('cover');
+            bt5.addEventListener('click', function() {
+                a.classList.add('anime5');
+                setTimeout(fadeOut, 1200);
+                setTimeout(fadeIn, 1500);
+            });
+
+            function fadeOuto() {
+                body.classList.add('bodyfadeout');
+            }
+            function fadeInn() {
+                location.href = '/portfolio'
+            }
+            var bt6 = document.getElementById('button2');
+            var a = document.getElementById('cover');
+            bt6.addEventListener('click', function() {
+                a.classList.add('anime5');
+                setTimeout(fadeOuto, 1200);
+                setTimeout(fadeInn, 1500);
+            });
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,277 @@
+/* タブレット向けレイアウト */
+@media all and (max-width: 1200px) {
+  .area {
+    width: 50%;
+    margin-bottom: 50px;
+  }
+
+  .top-wrapper h1 {
+    font-size: 32px;
+  }
+
+  .heading h2 {
+    font-size: 30px;
+  }
+
+  .profile-wrapper .btn {
+    width: 90%;
+    margin-bottom: 7px;
+  }
+
+  .profile-wrapper {
+    height: 1300px;
+  }
+
+  .like-wrapper {
+    height: 1800px;
+  }
+
+  .now-wrapper {
+    height: 1200px;
+  }
+
+  .mirai-wrapper {
+    height: 1200px;
+  }
+
+  .path-wrapper {
+    height: 2000px;
+  }
+
+  .path-wrapper .text-contents {
+    font-size: 20px;
+  }
+
+  .path-wrapper p {
+    font-size: 16px;
+    margin-right: 10%;
+  }
+
+  .path-left {
+    padding-left: 10px;
+  }
+
+  .form-left {
+    float: left;
+    width: 100%;
+    text-align: left;
+    padding-left: 25%;
+  }
+
+  .form-right {
+    float: left;
+    width: 100%;
+    text-align: left;
+    padding-left: 25%;
+  }
+
+  #name,
+  #email {
+    width: 370px;
+  }
+
+  footer {
+    text-align: center;
+  }
+}
+
+/* スマホ向けレイアウト */
+@media all and (max-width: 670px) {
+  .header-right {
+    display: none;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  li a {
+    display: block;
+    width: 90%;
+    text-indent: 0;
+    padding: 15px;
+    background-color: #516c95;
+    border-top: 1px solid #fff;
+    color: #fff;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  .top-wrapper {
+    text-align: center;
+  }
+
+  .top-wrapper h1 {
+    font-size: 24px;
+  }
+
+  .top-wrapper p {
+    font-size: 14px;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .facebook {
+    margin-top: 10px;
+  }
+
+  .twitter {
+    margin-top: 10px;
+  }
+
+  .area {
+    width: 100%;
+  }
+
+  .profile-wrapper {
+    height: 1700px;
+  }
+
+  .profile-left {
+    width: 100%;
+    margin-bottom: 50px;
+    padding-top: 0;
+  }
+
+  .profile-right {
+    width: 100%;
+  }
+
+  .profile-right .btn {
+    width: 100%;
+  }
+
+  .github {
+    margin-top: 20px;
+  }
+
+  .like-wrapper {
+    height: 3200px;
+  }
+
+  .now-wrapper {
+    height: 2300px;
+  }
+
+  .mirai-wrapper {
+    height: 2300px;
+  }
+
+  .message-wrapper .btn {
+    width: 100%;
+  }
+
+  .path-wrapper {
+    height: 3100px;
+    background-repeat: repeat;
+  }
+
+  .path {
+    padding-bottom: 10px;
+  }
+
+  .path-left {
+    width: 100%;
+    padding-left: 0;
+  }
+
+  .path-right {
+    width: 100%;
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+  .path-right .text-contents {
+    margin-top: 10px;
+  }
+
+  .portfolio-wrapper .area {
+    float: left;
+    width: 100%;
+  }
+
+  .form-left {
+    float: left;
+    width: 100%;
+    text-align: left;
+    padding-left: 25%;
+  }
+
+  .form-right {
+    float: left;
+    width: 100%;
+    text-align: left;
+    padding-left: 25%;
+  }
+
+  #name,
+  #email {
+    width: 200px;
+  }
+
+  footer {
+    text-align: center;
+  }
+}
+
+/* スマホ専用メニュー */
+#nav-drawer {
+  position: relative;
+}
+
+/*チェックボックス等は非表示に*/
+.nav-unshown {
+  display: none;
+}
+
+/*アイコンのスペース*/
+#nav-open {
+  display: block;
+  float: right;
+  margin-right: 15px;
+}
+
+/*閉じる用の薄黒箇所*/
+#nav-close {
+  display: none;
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  opacity: 0;
+  transition: 0.3s ease-in-out;
+}
+
+/*メニューの中身*/
+#nav-content {
+  overflow: auto;
+  position: fixed;
+  top: 50px;
+  right: 0;
+  z-index: 9999;
+  width: 100%;
+  height: auto;
+  opacity: 0.9;
+  transition: 0.3s ease-in-out;
+  -webkit-transform: translateY(-150%);
+  transform: translateY(-150%);
+}
+
+/*チェックがついたら表示させる*/
+#nav-input:checked ~ #nav-close {
+  display: block;
+  opacity: 0.5;
+}
+
+#nav-input:checked ~ #nav-content {
+  -webkit-transform: translateX(0%);
+  transform: translateX(0%);
+  box-shadow: 6px 0 25px rgba(0, 0, 0, 0.15);
+}

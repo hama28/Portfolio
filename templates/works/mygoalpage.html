@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="「こんなWebサイトを作ってみたい」といった目標を掲げたページです。"
+    />
+    <title>目標掲載ページ || 畑の自己紹介サイト</title>
+    <link
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" type="text/css" href="/static/css/mypr/stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/mypr/responsive.css">
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="http://mplus-fonts.sourceforge.jp/webfonts/basic_latin/mplus_webfonts.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="http://mplus-fonts.sourceforge.jp/webfonts/general-j/mplus_webfonts.css"
+    />
+    <script type="text/javascript" src="/static/js/mypr/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="/static/js/mypr/script.js"></script>
+    <script type="text/javascript" src="/static/js/mypr/anime.min.js"></script>
+    <style>
+        .path-wrapper {
+            height: 2000px;
+            padding-bottom: 80px;
+            padding-left: 5%;
+            padding-right: 5%;
+            background-color: #ffffff;
+            text-align: center;
+            background-image: url("/static/images/mypr/goal/path-bg-cover-big.png");
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        #cover {
+            width: 0;
+            height: 2000%;
+            background-image: url("/static/images/mypr/cover.png");
+            background-color: black;
+            border: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 999;
+        }
+    </style>
+  </head>
+  <body>
+    <style>
+      .top-wrapper {
+        background-color: rgb(247, 205, 92);
+      }
+      .page-move {
+        color: black;
+        background-color: rgb(247, 205, 92);
+        box-shadow: 0px 7px #eb781a;
+      }
+      .send-form {
+        color: black;
+        background: rgb(247, 205, 92);
+      }
+      .message-wrapper {
+        background-color: #d8d6d6;
+      }
+    </style>
+    <header>
+      <div id="nav-drawer">
+        <input id="nav-input" type="checkbox" class="nav-unshown" />
+        <label id="nav-open" for="nav-input"
+          ><span class="fa fa-bars menu-icon"></span
+        ></label>
+        <label class="nav-unshown" id="nav-close" for="nav-input"></label>
+        <div id="nav-content">
+          <ul>
+            <li><a href="#">Top</a></li>
+            <li><a href="#Goal">Goal</a></li>
+            <li><a href="#Path">Path</a></li>
+            <li><a href="#Contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="container">
+        <div class="header-left">
+          <img class="logo" src="/static/images/mypr/logo.png" />
+        </div>
+        <div class="header-right">
+          <a href="#">Top</a>
+          <a href="#Goal">Goal</a>
+          <a href="#Path">Path</a>
+          <a href="#Contact">Contact</a>
+        </div>
+      </div>
+    </header>
+    <div class="top-wrapper">
+      <div class="container">
+        <h1>こんなWebサイトを作りたい！！</h1>
+        <p>目標掲載ページ</p>
+      </div>
+    </div>
+    <div class="goal-wrapper" id="Goal">
+      <div class="container">
+        <div class="heading">
+          <h2>目標</h2>
+          <p>
+            下記のようなWebページを作ってみたい<br />
+            特に、SPAのWebページを作ってみたいので、Reactを勉強中
+          </p>
+        </div>
+        <div class="areas">
+          <div class="area">
+            <div class="area-icon">
+              <a href="https://meijisakaba.jp/" target="blank"
+                ><img src="/static/images/mypr/goal/goal1.png"
+              /></a>
+              <p>岡崎明治酒場</p>
+            </div>
+            <p class="text-contents">
+              Webサイト全体の世界観やデザインがかっこいい。スクロールしたときの読み込みモーションもかっこいい。和の要素を現代的(モダン)に表現しているのも素晴らしい。
+            </p>
+          </div>
+          <div class="area">
+            <div class="area-icon">
+              <a href="https://yuto-takahashi.com/" target="blank"
+                ><img src="/static/images/mypr/goal/goal2.png"
+              /></a>
+              <p>Yuto Takahashi</p>
+            </div>
+            <p class="text-contents">
+              Yuto
+              Takahashiさんのポートフォリオサイト。最初のローディング画面から、既にヤバさが滲み出ている。中身は凄すぎて、憧れを通り越すレベル。アニメーションが多様されているにも関わらず、世界観を崩さずまとめていることが神。
+            </p>
+          </div>
+          <div class="area">
+            <div class="area-icon">
+              <a href="https://spatzek.studio/" target="blank"
+                ><img src="/static/images/mypr/goal/goal3.png"
+              /></a>
+              <p>Spatzek Studio</p>
+            </div>
+            <p class="text-contents">
+              オサレ。さすがデザイン事務所。細かい部分まで手が込んでおり、Webサイトの世界観を作り出している。動画とテキストの組み合わせが巧みで、ローディング画面の見せ方もかっこいい。
+            </p>
+          </div>
+        </div>
+        <div class="area">
+          <div class="area-icon">
+            <a href="https://www.apple.com/jp/iphone-11-pro/" target="blank"
+              ><img src="/static/images/mypr/goal/goal4.png"
+            /></a>
+            <p>Apple</p>
+          </div>
+          <p class="text-contents">
+            オシャレなWebページといえば「Apple」は外せない。特に「iPhone11Pro」のページは、これでもかと言わんばかりに凝りに凝ったデザインになっている。様々な表現方法がミックスされているので、勉強になる。
+          </p>
+        </div>
+
+        <div class="clear"></div>
+      </div>
+    </div>
+    <div class="path-wrapper" id="Path">
+      <div class="container">
+        <div class="heading">
+          <h2>今後の私</h2>
+        </div>
+        <div class="areas">
+          <div class="path">
+            <div class="path-left">
+              <div class="area-icon">
+                <img src="/static/images/mypr/goal/path1.png" />
+                <p>1ヶ月後</p>
+              </div>
+            </div>
+            <div class="path-right">
+              <p class="text-contents">ReactとRailsの習熟</p>
+              <p>
+                React(フロントエンド)とRails(サーバサイド)の仕組みや作り方を学び、ローカルで一通り作れるようになる。
+              </p>
+            </div>
+          </div>
+          <div class="path">
+            <div class="path-left">
+              <div class="area-icon">
+                <img src="/static/images/mypr/goal/path2.png" />
+                <p>3ヶ月後</p>
+              </div>
+            </div>
+            <div class="path-right">
+              <p class="text-contents">Webアプリのリリース</p>
+              <p>
+                3ヶ月以内に、GCPなどのクラウドインフラを使用して、Webアプリを公開する。もちろん無料で。<br />
+                Done is better than perfect.
+              </p>
+            </div>
+          </div>
+          <div class="path">
+            <div class="path-left">
+              <div class="area-icon">
+                <img src="/static/images/mypr/goal/path3.png" />
+                <p>6ヶ月後</p>
+              </div>
+            </div>
+            <div class="path-right">
+              <p class="text-contents">就職先で奮闘</p>
+              <p>
+                職場環境にまず慣れるところから。チームでの開発など知らないことが多々あると思うので日々勉強。
+              </p>
+            </div>
+          </div>
+          <div class="path">
+            <div class="path-left">
+              <div class="area-icon">
+                <img src="/static/images/mypr/goal/path1.png" />
+                <p>1年後</p>
+              </div>
+            </div>
+            <div class="path-right">
+              <p class="text-contents">エンジニアもどき</p>
+              <p>
+                できることの幅を広げ、自走できるエンジニアを目指し奮闘。並行してアウトプットも続け、技術のアップデートを怠らない。
+              </p>
+            </div>
+          </div>
+          <div class="path">
+            <div class="path-left">
+              <div class="area-icon">
+                <img src="/static/images/mypr/goal/path2.png" />
+                <p>3年後</p>
+              </div>
+            </div>
+            <div class="path-right">
+              <p class="text-contents">フルスタックエンジニア</p>
+              <p>
+                フルスタックエンジニアとして、業界を渡り歩ける技術を身につけ、様々な経験を得る。
+              </p>
+            </div>
+          </div>
+          <div class="path">
+            <div class="path-left">
+              <div class="area-icon">
+                <img src="/static/images/mypr/goal/path3.png" />
+                <p>5年後</p>
+              </div>
+            </div>
+            <div class="path-right">
+              <p class="text-contents">ベンチャー or 起業</p>
+              <p>
+                惚れ込んだサービスのリードエンジニアか、自身のサービスを展開する。
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+    <div class="message-wrapper" id="Contact">
+      <div class="container">
+        <div class="heading">
+          <h2>Contact</h2>
+          <h3>
+            このWebサイトについて、私について、サイトの感想など、<br />
+            なにかコメントがありましたら下記のフォームをご利用ください。<br>
+            ※このフォームは形だけです。実際に送信はできません。
+          </h3>
+          <form action="fake.php" method="post">
+            <div class="form-left">
+              <label class="label" for="name">名前</label>
+              <input id="name" type="text" name="name" />
+              <label class="label" for="email">メールアドレス</label>
+              <input id="email" type="email" name="email" />
+            </div>
+            <div class="form-right">
+              <label class="label" for="message">メッセージ</label>
+              <textarea id="message" name="comment"></textarea>
+            </div>
+            <div class="clear"></div>
+            <input type="submit" value="送信" class="send-form" />
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="page-wrapper">
+      <div class="container">
+        <div class="heading">
+          <h2>ページリンク</h2>
+        </div>
+        <div id="cover"></div>
+        <button class="btn page-move" id="button1">自己紹介ページ</button>
+        <button class="btn page-move" id="button2">ポートフォリオ</button>
+      </div>
+    </div>
+    <footer>
+      <div class="container">
+        <img src="/static/images/mypr/logo.png" />
+        <p>Copyright © 2020 hata All Rights Reserved.</p>
+      </div>
+    </footer>
+    <script>
+      const body = document.getElementsByTagName("body")[0];
+      function fadeOut() {
+        body.classList.add("bodyfadeout");
+      }
+      function fadeIn() {
+        location.href = "/works/myprpage";
+      }
+      var bt5 = document.getElementById("button1");
+      var a = document.getElementById("cover");
+      bt5.addEventListener("click", function () {
+        a.classList.add("anime5");
+        setTimeout(fadeOut, 1200);
+        setTimeout(fadeIn, 1500);
+      });
+
+      function fadeOuto() {
+        body.classList.add("bodyfadeout");
+      }
+      function fadeInn() {
+        location.href = "/portfolio";
+      }
+      var bt6 = document.getElementById("button2");
+      var a = document.getElementById("cover");
+      bt6.addEventListener("click", function () {
+        a.classList.add("anime5");
+        setTimeout(fadeOuto, 1200);
+        setTimeout(fadeInn, 1500);
+      });
+    </script>
+  </body>
+</html>

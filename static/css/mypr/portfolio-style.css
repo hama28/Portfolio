@@ -1,0 +1,12 @@
+.portfolio-wrapper {
+  padding-bottom: 80px;
+  padding-left: 5%;
+  padding-right: 5%;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.portfolio-wrapper .area {
+  float: left;
+  width: 50%;
+}
