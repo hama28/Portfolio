@@ -27,6 +27,11 @@ def mygoalpage():
     return render_template('works/mygoalpage.html')
 
 
+@app.route('/works/imagelayout')
+def imagelayout():
+    return render_template('works/imagelayout.html')
+
+
 @app.route('/works/qrcoder')
 def qrcoder():
     return render_template('works/qrcoder.html', qrcodeimage='/static/images/blank.gif')

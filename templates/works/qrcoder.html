@@ -4,6 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QRコード生成</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+        form{
+            text-align: center;
+        }
+        .img_block img{
+            display: block;
+            margin:auto;
+        }    
+    </style>
 </head>
 <body>
     <h1>QRコード生成</h1>
@@ -12,6 +24,8 @@
         </p>
         <button type="submit">生成</button>
     </form>
-    <img src="{{ qrcodeimage }}" alt="qrcode">
+    <div class="img_block">
+        <img src="{{ qrcodeimage }}" alt="qrcode">
+    </div>
 </body>
 </html>
