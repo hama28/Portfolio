@@ -342,6 +342,9 @@ ul li {
 	padding: 30px;
 	text-align: left;
 }
+.icons{
+	text-align: center;
+}
 
 .skill-wrapper{
 	display: flex;
