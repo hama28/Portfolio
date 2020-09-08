@@ -1,7 +1,10 @@
+import imp
+import logging
 from flask import Flask, render_template
 from flask import request, url_for, redirect
 import datetime
 import qrcode
+import logging
 from todo import ToDoList
 
 
@@ -99,6 +102,12 @@ def delete_alldoneitems():
 
 def show_msg(msg):
     return render_template('msg.html', msg=msg)
+
+
+@app.errorhandler(404)
+def error_404(exception):
+    logging.exception(exception)
+    return render_template('404.html'), 404
 
 
 
