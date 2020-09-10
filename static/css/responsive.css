@@ -84,7 +84,7 @@
   .banner-text {
     padding-top: 35%; }
 	.innerbanner-text{
-	    padding-top: 35%; } }
+      padding-top: 35%; } }
 @media screen and (max-width: 480px) {
 	#header .header-content {
 		 padding: 45px 0;
@@ -94,17 +94,15 @@
 	    .banner-text h1 {
       font-size: 32px; }
 	  .innerbanner-text{
-	    padding-top: 45%; } }
+      padding-top: 45%; } }
 @media screen and (max-width: 320px) {
 	#header .header-content {
-		 padding: 45px 0;
+    padding: 45px 0;
 	}
-			
-			
   .banner-text {
     padding-top: 55%; }
 .innerbanner-text{
-	    padding-top: 55%; }
+  padding-top: 55%; }
   .testimonials blockquote {
     padding: 20px 5% 0; }
   .testimonials p {
