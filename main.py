@@ -4,14 +4,9 @@ from flask import Flask, render_template
 from flask import request, url_for, redirect
 import datetime
 import qrcode
-import logging
-from todo import ToDoList
 
 
 app = Flask(__name__)
-
-
-todolist = ToDoList()
 
 
 @app.route('/')
@@ -71,33 +66,6 @@ def qrcc():
     # キャッシュの画像が表示されないようにパスの後ろに日時を追加
     return render_template('works/qrcoder.html', qrcodeimage=('/' + imgurl + '?' + ctime))
 
-
-@app.route('/works/todo')
-def show_todolist():
-    return render_template('works/todo.html',todolist=todolist.get_all())
-
-@app.route("/works/todo/additem", methods=["POST"])
-def add_item():
-    title = request.form["title"]
-    if not title:
-        return redirect("/works/todo")
-    todolist.add(title)
-    return redirect("/works/todo")
-
-@app.route("/works/todo/deleteitem/<int:item_id>")
-def delete_todoitem(item_id):
-    todolist.delete(item_id)
-    return redirect("/works/todo")
-
-@app.route("/works/todo/updatedone/<int:item_id>")
-def update_todoitemdone(item_id):
-    todolist.update(item_id)
-    return redirect("/works/todo")
-
-@app.route("/works/todo/deletealldoneitems")
-def delete_alldoneitems():
-    todolist.delete_doneitem()
-    return redirect("/works/todo")
 
 
 def show_msg(msg):

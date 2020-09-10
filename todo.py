@@ -1,36 +1,95 @@
-class ToDoItem:
-    item_id = 0
+import logging
 
-    def __init__(self, title):
-        self.title
-        self.done = False
-        self.item_id = ToDoItem.item_id
-        # 項目が追加されるたびにIDをインクリメント
-        ToDoItem.item_id += 1
+from flask import Flask, abort, request, render_template
+# from google.cloud import storage
 
-class ToDoList:
-    def __init__(self):
-        self.todolist = []
+import ds
 
-    # 項目の追加
-    def add(self, title):
-        item = ToDoItem(title)
-        self.todolist.append(item)
 
-    # 項目の削除
-    def delete(self, item_id):
-        item = [x for x in self.todolist if x.item_id == item_id]
-        del item[0]
+app = Flask(__name__)
+logging.getLogger().setLevel(logging.DEBUG)
 
-    # doneの値を反転(false -> true)
-    def update(self, item_id):
-        item = [x for x in self.todolist if x.item_id == item_id]
-        item[0].done = not item[0].done
 
-    # リストを返す
-    def get_all(self):
-        return self.todolist
+@app.route('/')
+def home():
+    message = 'ToDoリスト にようこそ'
+    return render_template('works/todo.html', 
+                message=message,
+                data=ds.get_all())
 
-    # 完了項目を削除
-    def delete_doneitem(self):
-        self.todolist = [x for x in self.todolist if not x.done]
+
+
+@app.route('/api/greetings/<key_id>', methods=['GET', 'PUT', 'DELETE'])
+@app.route('/api/greetings', methods=['GET', 'POST'])
+def greetings(key_id=None):
+    if request.method == 'GET':
+        if key_id:
+            entity = ds.get_by_id(key_id)
+            if not entity:
+                abort(404)
+            return entity
+        
+        greetings = ds.get_all()
+        res = {
+            'greetings': greetings
+        }
+        return res
+
+    elif request.method == 'POST':
+        author = request.json['author']
+        message = request.json['message']
+        entity = ds.insert(author, message)
+        return entity, 201
+
+    elif request.method == 'PUT':
+        entity = ds.get_by_id(key_id)
+        if not entity:
+            abort(404)
+            return entity
+
+        entity['author'] = request.json['author']
+        entity['message'] = request.json['message']
+        entity = ds.update(entity)
+        return entity
+
+    elif request.method == 'DELETE':
+        ds.delete(key_id)
+        return '', 204
+
+
+@app.route('/api/comments', methods=['GET', 'POST'])
+def comments():
+    if request.method == 'GET':
+        parent_id = request.args['parent_id']
+        entities = ds.get_comments(parent_id)
+        res = {
+            'comments': entities
+        }
+        return res, 200
+
+    elif request.method == 'POST':
+        parent_id = request.json['parent_id']
+        message = request.json['message']
+        entity = ds.insert_comment(parent_id, message)
+        return entity, 201
+
+
+@app.route('/err500')
+def err500():
+    abort(500)
+
+
+@app.errorhandler(404)
+def error_404(exception):
+    logging.exception(exception)
+    return {'message': 'Error: Resource not found.'}, 404
+
+
+@app.errorhandler(500)
+def error_500(exception):
+    logging.exception(exception)
+    return {'message': 'Please contact the administrator.'}, 500
+
+
+if __name__ == '__main__':
+    app.run(host='127.0.0.1', port=8080, debug=True)

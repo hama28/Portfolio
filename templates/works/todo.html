@@ -1,33 +1,19 @@
 <!DOCTYPE html>
+{% autoescape true %}
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ToDoリスト</title>
-    <link rel="stylesheet" type="text/css"
-    href="{{ url_for('static', filename='css/todostyle.css')}}" />
 </head>
 <body>
-    <h1>ToDoリスト</h1>
-    {% if not todolist %}
-        <p>you can register something to do.</p>
-    {% else %}
-        <p>your todo list:</p>
-    {% endif %}
-    <ul>
-        {% for item in todolist %}
-            <li {% if item.done %}style="color: lightgray"{% endif %}>
-                {{ item.title }}
-                <a href="/works/todo/updatedone/{{ item.item_id }}">[done!]</a>
-                <a href="/works/todo/deleteitem/{{ item.item_id }}">[delete]</a>
-            </li>
-        {% endfor %}
-    </ul>
-    <form action="/works/todo/additem" method="post" name="myform">
-        <p>
-            <input type="text" name="title">
-        </p>
-        <a href="javascript:document.myform.submit()" class="button">submit</a>
-        <a href="/works/todo/deletealldoneitems" class="button">delete all done items</a>
-    </form>
+    <h2>{{ message }}</h2>
+
+    {% for i in data %}
+        <div>
+            <p>{{ i.things }}</p>
+        </div>
+    {% endfor %}
 </body>
 </html>
+{% endautoescape %}
