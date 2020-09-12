@@ -1,11 +1,14 @@
+from flask import Flask, request, session, abort, render_template, redirect, url_for
 import logging
-from flask import Flask, render_template
-from flask import request, url_for, redirect
 import datetime
 import qrcode
+import ds
+import account
 
 
 app = Flask(__name__)
+logging.getLogger().setLevel(logging.DEBUG)
+app.secret_key = 'm9XE4JH5dBOQK4o4'
 
 
 @app.route('/')
@@ -33,10 +36,10 @@ def imagelayout():
     return render_template('works/imagelayout.html')
 
 
+# ----- QRコード生成ページ -----
 @app.route('/works/qrcoder')
 def qrcoder():
     return render_template('works/qrcoder.html', qrcodeimage='/static/images/blank.gif')
-
 
 @app.route('/works/qrcc', methods=['POST'])
 def qrcc():
@@ -64,6 +67,134 @@ def qrcc():
     ctime = str(datetime.datetime.now())
     # キャッシュの画像が表示されないようにパスの後ろに日時を追加
     return render_template('works/qrcoder.html', qrcodeimage=('/' + imgurl + '?' + ctime))
+# ---------------
+
+
+# ----- ToDoListApp -----
+# ----- 通常ページ -----
+@app.route('/works/todo')
+def todo():
+    data = ds.get_all()
+    message = "ToDoList にようこそ！"
+    return render_template('works/todo.html',
+                    message=message,
+                    data=data)
+
+@app.route('/works/todo/check/<key_id>', methods=['POST'])
+def check(key_id=None):
+    entity = ds.get_by_id(key_id)
+    if not entity:
+        abort(404)
+    entity['check'] = "1"
+    ds.update(entity)
+    return redirect('/works/todo')
+# ---------------
+
+
+# ----- ログインページ -----
+@app.route('/works/todo/login')
+def login():
+    # 既にログインしていれば管理画面へ
+    if is_login():
+        return redirect('/works/todo/admin')
+    return render_template('works/todo_login.html')
+
+@app.route('/works/todo/check_login', methods=['POST'])
+def check_login():
+    # フォームの値の取得
+    name, pw = (None, None)
+    if 'name' in request.form:
+        name = request.form['name']
+    if 'pw' in request.form:
+        pw = request.form['pw']
+    if (name is None) or (pw is None):
+        return redirect('/works/todo')
+    # ログインチェック
+    if try_login(name, pw) == False:
+        return """
+        <h1>ユーザー名かパスワードが間違っています</h1>
+        <p><a href="/works/todo/login">ログインフォームに戻る</a></p>
+        """
+    # 管理ページにリダイレクト
+    return redirect('/works/todo/admin')
+
+# ログイン処理を行う
+def try_login(name, pw):
+    data = account.get_all()
+    # ユーザー名があっているかチェック
+    if data[0]['name'] != name:
+        return False
+    # パスワードがあっているかチェック
+    if data[0]['pw'] != pw:
+        return False
+    # ログイン処理を実行
+    session['login'] = name
+    return True
+
+# ログインしているかチェック
+def is_login():
+    if 'login' in session:
+        return True
+    return False
+# ---------------
+
+
+# ----- 管理者ページ -----
+@app.route('/works/todo/admin')
+def admin():
+    # ログインしていなければトップへリダイレクト
+    if not is_login():
+        return """
+        <h1>ログインしてください</h1>
+        <p><a href="/works/todo/login">ログインする</a></p>
+        """
+    data = ds.get_all()
+    message = "ToDoList 管理画面"
+    return render_template('works/todo_admin.html',
+                    message=message,
+                    data=data)
+
+@app.route('/works/todo/add', methods=['PUT'])
+def add():
+    # ログインしていなければトップへリダイレクト
+    if not is_login():
+        return """
+        <h1>ログインしてください</h1>
+        <p><a href="/works/todo/login">ログインする</a></p>
+        """
+    addtodo = request.form.get('addtodo', '')
+    if addtodo == '':
+        return redirect('/works/todo/admin')
+    things = addtodo
+    check = "0"
+    ds.insert(things, check)
+    return redirect('/works/todo/admin')
+
+@app.route('/works/todo/delete/<key_id>', methods=['DELETE'])
+def delete(key_id=None):
+    # ログインしていなければトップへリダイレクト
+    if not is_login():
+        return """
+        <h1>ログインしてください</h1>
+        <p><a href="/works/todo/login">ログインする</a></p>
+        """
+    ds.delete(key_id)
+    return redirect('/works/todo/admin')
+
+@app.route('/works/todo/logout')
+def logout_page():
+    # ログアウト処理の実行
+    try_logout()
+    return """
+    <h1>ログアウトしました</h1>
+    <p><a href="/works/todo">ToDoリストに戻る</a></p>
+    """
+
+# ログアウトする
+def try_logout():
+    session.pop('login', None)
+    return True
+# ---------------
 
 
 

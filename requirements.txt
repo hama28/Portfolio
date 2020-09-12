@@ -1,1 +1,5 @@
-Flask==1.1.1
+Flask
+qrcode
+google-cloud-datastore
+google-cloud-core
+google-cloud-storage

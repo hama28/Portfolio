@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDoリスト 管理画面</title>
+    <link rel='stylesheet' href='/static/css/todostyle.css'>
+</head>
+<body>
+    <h2>{{ message }}</h2>
+    <p><a href="/works/todo/logout">ログアウト</a></p>
+
+    <div class="container">
+        <h3>未</h3>
+        <div class="lists">
+            {% for i in data %}
+                {% if i.check == "0" %}
+                    <div class="list">
+                        <p>{{ i.things }}</p>
+                        <div class="buttons">
+                            <form action="/works/todo/check/{{ i.id }}" method="POST">
+                                <button type="submit">完了</button>
+                            </form>
+                            <form action="/works/todo/delete/{{ i.id }}" method="DELETE">
+                                <button type="submit">削除</button>
+                            </form>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="container">
+        <h3>登録</h3>
+        <form action="/works/todo/add" method="PUT">
+            <p><input type="text" name="addtodo" size="40"></p>
+            <button type="submit">登録</button>
+        </form>
+    </div>
+
+    
+    <div class="container">
+        <h3>済</h3>
+        <div class="lists">
+            {% for i in data %}
+                {% if i.check == "1" %}
+                    <div class="list">
+                        <p>{{ i.things }}</p>
+                        <form action="/works/todo/delete/{{ i.id }}" method="DELETE">
+                            <button type="submit">削除</button>
+                        </form>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    
+
+</body>
+</html>
+{% endautoescape %}

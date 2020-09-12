@@ -1,8 +1,8 @@
 from datetime import datetime
 from http import client
-# from google.cloud import datastore
+from google.cloud import datastore
 
-# データの追加
+# データ追加
 def insert(things, check):
     client = datastore.Client()
     key = client.key("TodoList")
@@ -14,7 +14,7 @@ def insert(things, check):
     entity['id'] = entity.key.id
     return entity
 
-# データの取得
+# データ取得
 def get_all():
     client = datastore.Client()
     query = client.query(kind='TodoList')
@@ -27,7 +27,7 @@ def get_all():
 # 指定データの取得
 def get_by_id(key_id):
     client = datastore.Client()
-    key = client.key('Greeting', int(key_id))
+    key = client.key('TodoList', int(key_id))
     entity = client.get(key=key)
     if entity:
         entity['id'] = entity.key.id
@@ -45,29 +45,5 @@ def update(entity):
 # データの削除
 def delete(key_id):
     client = datastore.Client()
-    key = client.key('Greeting', int(key_id))
+    key = client.key('TodoList', int(key_id))
     client.delete(key)
-
-
-# エンティティグループ
-# データの追加
-def insert_comment(parent_id, message):
-    client = datastore.Client()
-    parent_key = client.key('Greeting', int(parent_id))
-    key = client.key('Comment', parent=parent_key)
-    entity = datastore.Entity(key=key)
-    entity['message'] = message
-    entity["created"] = datetime.now()
-    client.put(entity)
-    entity['id'] = entity.key.id
-    return entity
-
-# 子エンティティの取得
-def get_comments(parent_id):
-    client = datastore.Client()
-    ancestor = client.key('Greeting', int(parent_id))
-    query = client.query(kind='Comment', ancestor=ancestor)
-    entities = list(query.fetch())
-    for entity in entities:
-        entity['id'] = entity.key.id
-    return entities

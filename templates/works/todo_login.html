@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDoリスト ログイン</title>
+    <link rel='stylesheet' href='/static/css/todostyle.css'>
+</head>
+<body>
+    <h1>ログインフォーム</h1>
+
+    <div class="container">
+        <p>フォーム</p>
+        <form action="/works/todo/check_login" method="POST">
+            <p>ユーザー名：<input type="text" name="name"></p>
+            <p>パスワード：<input type="password" name="pw"></p>
+            <button type="submit">ログイン</button>
+        </form>
+    </div>
+
+    <p><a href="/works/todo">ToDoリストに戻る</a></p>
+
+    <!--
+        This is Portfolio.
+        Test Account.
+        name:masaruhata
+        pass:ToDoList-admin-hama28
+    -->
+</body>
+</html>
+{% endautoescape %}
