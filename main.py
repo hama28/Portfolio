@@ -154,7 +154,7 @@ def admin():
                     message=message,
                     data=data)
 
-@app.route('/works/todo/add', methods=['PUT'])
+@app.route('/works/todo/add', methods=['POST'])
 def add():
     # ログインしていなければトップへリダイレクト
     if not is_login():
@@ -170,7 +170,7 @@ def add():
     ds.insert(things, check)
     return redirect('/works/todo/admin')
 
-@app.route('/works/todo/delete/<key_id>', methods=['DELETE'])
+@app.route('/works/todo/delete/<key_id>', methods=['POST'])
 def delete(key_id=None):
     # ログインしていなければトップへリダイレクト
     if not is_login():

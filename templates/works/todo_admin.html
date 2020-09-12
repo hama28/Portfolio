@@ -22,7 +22,7 @@
                             <form action="/works/todo/check/{{ i.id }}" method="POST">
                                 <button type="submit">完了</button>
                             </form>
-                            <form action="/works/todo/delete/{{ i.id }}" method="DELETE">
+                            <form action="/works/todo/delete/{{ i.id }}" method="POST">
                                 <button type="submit">削除</button>
                             </form>
                         </div>
@@ -48,7 +48,7 @@
                 {% if i.check == "1" %}
                     <div class="list">
                         <p>{{ i.things }}</p>
-                        <form action="/works/todo/delete/{{ i.id }}" method="DELETE">
+                        <form action="/works/todo/delete/{{ i.id }}" method="POST">
                             <button type="submit">削除</button>
                         </form>
                     </div>
