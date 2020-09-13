@@ -1,9 +1,13 @@
 from flask import Flask, request, session, abort, render_template, redirect, url_for
+from google.cloud import storage
+from google.cloud.datastore import client
 import logging
 import datetime
 import qrcode
 import ds
 import account
+
+from PIL import Image, ImageFilter
 
 
 app = Flask(__name__)
@@ -55,16 +59,26 @@ def qrcc():
     if urlqr == '':
         return show_msg('URLを入力してから生成ボタンを押してください')
     # 描画するデータを指定する
-    qr.add_data(urlqr)
+    # qr.add_data(urlqr)
     # QRコードの元データを作る
-    qr.make()
+    # qr.make()
     # データをImageオブジェクトとして取得
-    img = qr.make_image()
+    # img = qr.make_image()
+
+    img = qrcode.make(urlqr)
+    # storage clientオブジェクトの作成
+    client = storage.Client()
+    bucket = client.get_bucket('hama28-portfolio')
+    upload_file = 'qrcode.png'
+    blob = bucket.blob(upload_file.filename)
+    blob.upload_from_file(img)
     # Imageをファイルに保存
-    imgurl = 'static/images/qrcode.png'
-    img.save(imgurl)
+    # imgurl = 'static/images/qrcode.png'
+    # img.save(imgurl)
     # 現在日時を取得
     ctime = str(datetime.datetime.now())
+    for blob in bucket.list_blobs():
+        imgurl = blob.public_url
     # キャッシュの画像が表示されないようにパスの後ろに日時を追加
     return render_template('works/qrcoder.html', qrcodeimage=('/' + imgurl + '?' + ctime))
 # ---------------
