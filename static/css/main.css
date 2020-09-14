@@ -145,10 +145,11 @@ ul li {
 }
 .navigation li {
 	display: inline-block;
+	margin-top: 5px;
 }
 .navigation a {
 	color: rgba(255, 255, 255, 0.75);
-	font-size: 13px;
+	font-size: 16px;
 	font-weight: 400;
 	margin-left: 40px;
 	letter-spacing: 3px;
@@ -378,7 +379,7 @@ td{
 -------------------------------------------------------------------------------*/
 #works{
 	text-align: center;
-	padding-bottom: 10px;
+	padding: 30px;
 }
 .work {
   -moz-box-shadow: 0 0 0 1px #fff;
@@ -490,8 +491,12 @@ td{
   visibility: visible; }
   
 /* ------------------------------------------------------------------------------
-	Hire me
+	Contact
 -------------------------------------------------------------------------------*/
+#contacts{
+	text-align: center;
+	padding: 30px;
+}
 .hireme {
 	background-color: #fafafa;
 }

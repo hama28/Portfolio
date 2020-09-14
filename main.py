@@ -67,20 +67,21 @@ def qrcc():
 
     img = qrcode.make(urlqr)
     # storage clientオブジェクトの作成
-    client = storage.Client()
-    bucket = client.get_bucket('hama28-portfolio')
-    upload_file = 'qrcode.png'
-    blob = bucket.blob(upload_file.filename)
-    blob.upload_from_file(img)
+    #client = storage.Client()
+    #bucket = client.get_bucket('hama28-portfolio')
+    #upload_file = 'qrcodeimage'
+    #blob = bucket.blob(upload_file.filename)
+    #blob.upload_from_file(img)
     # Imageをファイルに保存
-    # imgurl = 'static/images/qrcode.png'
-    # img.save(imgurl)
+    imgurl = 'static/images/qrcode.png'
+    img.save(imgurl)
     # 現在日時を取得
     ctime = str(datetime.datetime.now())
-    for blob in bucket.list_blobs():
-        imgurl = blob.public_url
+    # for blob in bucket.list_blobs():
+    #    imgurl = blob.public_url
     # キャッシュの画像が表示されないようにパスの後ろに日時を追加
     return render_template('works/qrcoder.html', qrcodeimage=('/' + imgurl + '?' + ctime))
+    # return render_template('works/qrcoder.html', qrcodeimage='/static/images/blank.gif')
 # ---------------
 
 
@@ -220,6 +221,12 @@ def show_msg(msg):
 def error_404(exception):
     logging.exception(exception)
     return render_template('404.html'), 404
+
+
+@app.errorhandler(500)
+def error_500(exception):
+    logging.exception(exception)
+    return render_template('500.html'), 500
 
 
 

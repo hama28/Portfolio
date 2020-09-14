@@ -1,4 +1,5 @@
 Flask
+Pillow
 qrcode
 google-cloud-datastore
 google-cloud-core
