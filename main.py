@@ -133,10 +133,7 @@ def check_login():
         return redirect('/works/todo')
     # ログインチェック
     if try_login(name, pw) == False:
-        return """
-        <h1>ユーザー名かパスワードが間違っています</h1>
-        <p><a href="/works/todo/login">ログインフォームに戻る</a></p>
-        """
+        return show_msg("ユーザー名かパスワードが間違っています")
     # 管理ページにリダイレクト
     return redirect('/works/todo/admin')
 
@@ -166,10 +163,7 @@ def is_login():
 def admin():
     # ログインしていなければトップへリダイレクト
     if not is_login():
-        return """
-        <h1>ログインしてください</h1>
-        <p><a href="/works/todo/login">ログインする</a></p>
-        """
+        return show_msg("認証失敗。ログインが必要なページです。")
     data = ds.get_all()
     message = "ToDoList 管理画面"
     return render_template('works/todo_admin.html',
@@ -180,10 +174,7 @@ def admin():
 def add():
     # ログインしていなければトップへリダイレクト
     if not is_login():
-        return """
-        <h1>ログインしてください</h1>
-        <p><a href="/works/todo/login">ログインする</a></p>
-        """
+        return show_msg("認証失敗。ログインが必要なページです。")
     addtodo = request.form.get('addtodo', '')
     if addtodo == '':
         return redirect('/works/todo/admin')
@@ -196,10 +187,7 @@ def add():
 def delete(key_id=None):
     # ログインしていなければトップへリダイレクト
     if not is_login():
-        return """
-        <h1>ログインしてください</h1>
-        <p><a href="/works/todo/login">ログインする</a></p>
-        """
+        return show_msg("認証失敗。ログインが必要なページです。")
     ds.delete(key_id)
     return redirect('/works/todo/admin')
 
@@ -207,10 +195,7 @@ def delete(key_id=None):
 def logout_page():
     # ログアウト処理の実行
     try_logout()
-    return """
-    <h1>ログアウトしました</h1>
-    <p><a href="/works/todo">ToDoリストに戻る</a></p>
-    """
+    return show_msg("ログアウトしました")
 
 # ログアウトする
 def try_logout():
