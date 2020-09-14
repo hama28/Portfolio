@@ -1,13 +1,12 @@
 from flask import Flask, request, session, abort, render_template, redirect, url_for
 from google.cloud import storage
-from google.cloud.datastore import client
+from PIL import Image
+import tempfile
 import logging
 import datetime
 import qrcode
 import ds
 import account
-
-from PIL import Image, ImageFilter
 
 
 app = Flask(__name__)
@@ -59,29 +58,37 @@ def qrcc():
     if urlqr == '':
         return show_msg('URLを入力してから生成ボタンを押してください')
     # 描画するデータを指定する
-    # qr.add_data(urlqr)
+    qr.add_data(urlqr)
     # QRコードの元データを作る
-    # qr.make()
+    qr.make()
     # データをImageオブジェクトとして取得
-    # img = qr.make_image()
+    img = qr.make_image()
 
-    img = qrcode.make(urlqr)
-    # storage clientオブジェクトの作成
-    #client = storage.Client()
-    #bucket = client.get_bucket('hama28-portfolio')
-    #upload_file = 'qrcodeimage'
-    #blob = bucket.blob(upload_file.filename)
-    #blob.upload_from_file(img)
-    # Imageをファイルに保存
-    imgurl = 'static/images/qrcode.png'
+    # 一時ファイルを作成
+    tmpdir = tempfile.TemporaryDirectory()
+    # 一時ファイルのパスを指定
+    imgurl = tmpdir.name + '/qrcode.png'
+    # 一時ファイルに保存
     img.save(imgurl)
+
+    # storage clientオブジェクトの作成
+    client = storage.Client()
+    # バケットの指定
+    bucket = client.get_bucket('hama28-portfolio')
+    # ファイル名の指定
+    blob = bucket.blob('qrcode.png')
+    # 一時ファイルに保存したファイルをアップロード
+    with open(imgurl, 'rb') as photo:
+        blob.upload_from_file(photo)
+    # 一時ファイルの削除
+    tmpdir.cleanup()
+    # 画像が保存されるStorageのURL
+    qrimg = 'https://storage.googleapis.com/hama28-portfolio/qrcode.png'
     # 現在日時を取得
     ctime = str(datetime.datetime.now())
-    # for blob in bucket.list_blobs():
-    #    imgurl = blob.public_url
+
     # キャッシュの画像が表示されないようにパスの後ろに日時を追加
-    return render_template('works/qrcoder.html', qrcodeimage=('/' + imgurl + '?' + ctime))
-    # return render_template('works/qrcoder.html', qrcodeimage='/static/images/blank.gif')
+    return render_template('works/qrcoder.html', qrcodeimage=(qrimg + '?' + ctime))
 # ---------------
 
 
