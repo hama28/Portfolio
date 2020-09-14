@@ -183,6 +183,34 @@ def add():
     ds.insert(things, check)
     return redirect('/works/todo/admin')
 
+@app.route('/works/todo/edit_form/<key_id>', methods=['POST'])
+def edit_form(key_id=None):
+    # ログインしていなければトップへリダイレクト
+    if not is_login():
+        return show_msg("認証失敗。ログインが必要なページです。")
+    entity = ds.get_by_id(key_id)
+    if not entity:
+        abort(404)
+    key_id = entity['id']
+    thing = entity['things']
+    return render_template('works/todo_edit.html', key_id=key_id, thing=thing)
+
+@app.route('/works/todo/edit/<key_id>', methods=['POST'])
+def edit(key_id=None):
+    # ログインしていなければトップへリダイレクト
+    if not is_login():
+        return show_msg("認証失敗。ログインが必要なページです。")
+    entity = ds.get_by_id(key_id)
+    if not entity:
+        abort(404)
+    addtodo = request.form.get('addtodo', '')
+    if addtodo == '':
+        return redirect('/works/todo/admin')
+    entity['things'] = addtodo
+    entity = ds.update(entity)
+    return redirect('/works/todo/admin')
+
+
 @app.route('/works/todo/delete/<key_id>', methods=['POST'])
 def delete(key_id=None):
     # ログインしていなければトップへリダイレクト

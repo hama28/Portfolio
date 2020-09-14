@@ -22,6 +22,9 @@
                             <form action="/works/todo/check/{{ i.id }}" method="POST">
                                 <button type="submit">完了</button>
                             </form>
+                            <form action="/works/todo/edit_form/{{ i.id }}" method="POST">
+                                <button type="submit">編集</button>
+                            </form>
                             <form action="/works/todo/delete/{{ i.id }}" method="POST">
                                 <button type="submit">削除</button>
                             </form>
@@ -34,7 +37,7 @@
 
     <div class="container">
         <h3>登録</h3>
-        <form action="/works/todo/add" method="PUT">
+        <form action="/works/todo/add" method="POST">
             <p><input type="text" name="addtodo" size="40"></p>
             <button type="submit">登録</button>
         </form>

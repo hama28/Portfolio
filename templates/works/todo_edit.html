@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDoリスト 編集</title>
+    <link rel='stylesheet' href='/static/css/todostyle.css'>
+</head>
+<body>
+    <div class="container">
+        <h3>編集</h3>
+        <form action="/works/todo/edit/{{ key_id }}" method="POST">
+            <p><input type="text" name="addtodo" size="40" value="{{ thing }}"></p>
+            <button type="submit">更新</button>
+        </form>
+    </div>
+
+    <p><a href="/works/todo">ToDoリストに戻る</a></p>
+
+</body>
+</html>
+{% endautoescape %}
