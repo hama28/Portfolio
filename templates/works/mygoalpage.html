@@ -31,14 +31,14 @@
     <script type="text/javascript" src="/static/js/mypr/anime.min.js"></script>
     <style>
         .path-wrapper {
-            height: 2000px;
+            height: 3200px;
             padding-bottom: 80px;
             padding-left: 5%;
             padding-right: 5%;
             background-color: #ffffff;
             text-align: center;
             background-image: url("/static/images/mypr/goal/path-bg-cover-big.png");
-            background-repeat: no-repeat;
+            background-repeat: repeat;
             background-position: center;
         }
         #cover {
@@ -52,6 +52,11 @@
             left: 0;
             z-index: 999;
         }
+        @media screen and (min-width: 640px) {
+        .path-wrapper {
+          height: 2000px;
+        }
+      }
     </style>
   </head>
   <body>
