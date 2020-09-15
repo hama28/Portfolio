@@ -51,6 +51,9 @@
                 {% if i.check == "1" %}
                     <div class="list">
                         <p>{{ i.things }}</p>
+                        <form action="/works/todo/check/{{ i.id }}" method="POST">
+                            <button type="submit">戻す</button>
+                        </form>
                         <form action="/works/todo/delete/{{ i.id }}" method="POST">
                             <button type="submit">削除</button>
                         </form>

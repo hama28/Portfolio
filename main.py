@@ -107,7 +107,10 @@ def check(key_id=None):
     entity = ds.get_by_id(key_id)
     if not entity:
         abort(404)
-    entity['check'] = "1"
+    if entity['check'] == "0":
+        entity['check'] = "1"
+    elif entity['check'] == "1":
+        entity['check'] = "0"
     ds.update(entity)
     return redirect('/works/todo')
 # ---------------
