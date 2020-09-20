@@ -8,6 +8,9 @@ button {
     margin: 10px;
     padding: 0px 30px;
 }
+a {
+    text-decoration: none;
+}
 .container {
     margin: 10px;
     border: solid;
