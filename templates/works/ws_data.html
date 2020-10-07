@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Scraping Result</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <a class="btn btn-primary mt-5" href="/works/ws_get_list" role="button">データ選択画面に戻る</a>
+                {% for i in entities %}
+                <div class="card mt-5 mb-5">
+                    <div class="card-header">
+                    <h5 class="card-title">{{ i.title }}</h5>
+                    </div>
+                    <div class="card-body">
+                    <p class="card-text">
+                        人気: {{ i.users }}<br>
+                        掲載サイト: {{ i.web_name }}</p>
+                    <a href="{{ i.url }}" target="blank" class="btn btn-info">記事へ</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+{% endautoescape %}

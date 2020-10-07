@@ -7,6 +7,7 @@ import datetime
 import qrcode
 import ds
 import account
+import ws
 
 
 app = Flask(__name__)
@@ -234,6 +235,39 @@ def try_logout():
     return True
 # ---------------
 
+
+
+# ----- スクレイピング -----
+@app.route('/works/ws_top')
+def ws_top():
+    return render_template('works/ws_top.html')
+
+@app.route('/works/ws_start', methods=['POST'])
+def ws_start():
+    web_array = []
+    target = request.form['target']
+    users = request.form['users']
+
+    if target == 'はてなブックマーク':
+        web_array = ws.get_hatebu(users)
+    
+    # 親データを追加、親データのkey_idを取得
+    parent_id = ws.insert(target, users)
+    # 親データに紐付けて子データを追加
+    ws.insert_descendant(parent_id, web_array)
+
+    return redirect('/works/ws_get_list')
+
+@app.route('/works/ws_get_list')
+def ws_get_list():
+    data = ws.get_all()
+    return render_template('works/ws_get_list.html', data=data)
+
+@app.route('/works/ws_data/<key_id>', methods=['POST'])
+def ws_data(key_id=None):
+    entities = ws.get_data(key_id)
+    return render_template('works/ws_data.html', entities=entities)
+# ---------------
 
 
 def show_msg(msg):

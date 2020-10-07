@@ -4,3 +4,4 @@ qrcode
 google-cloud-datastore
 google-cloud-core
 google-cloud-storage
+bs4

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Web Scraping Toppage</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card mt-5">
+                <div class="card-header">
+                    <h5 class="card-title">Web Scraping</h5>
+                </div>
+                <div class="card-body">
+                    <form action="/works/ws_start" method="POST">
+                        <p class="card-text">web：
+                            <select name="target">
+                                <option selected="selected">はてなブックマーク</option>
+                            </select>
+                        </p>
+                        <p class="card-text">人気：
+                            <select name="users">
+                                <option>100</option>
+                                <option>200</option>
+                                <option selected="selected">300</option>
+                                <option>400</option>
+                                <option>500</option>
+                                <option>600</option>
+                                <option>700</option>
+                                <option>800</option>
+                                <option>900</option>
+                            </select>
+                        以上</p>
+                        <button type="submit" class="btn btn-info">データ取得</button>
+                    </form>
+                </div>
+            </div>
+            <a class="btn btn-primary mt-5" href="/works/ws_get_list" role="button">過去に取得したデータ一覧へ</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+{% endautoescape %}
