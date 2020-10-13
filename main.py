@@ -270,6 +270,13 @@ def ws_data(key_id=None):
 # ---------------
 
 
+# ---------------
+@app.route('/works/microbit')
+def microbit():
+    return render_template('works/microbit.html')
+# ---------------
+
+
 def show_msg(msg):
     return render_template('msg.html', msg=msg)
 
