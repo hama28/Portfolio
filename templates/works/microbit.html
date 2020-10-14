@@ -11,6 +11,18 @@
         body {
             text-align: center;
         }
+        .video{
+            position:relative;
+            width:100%;
+            padding-top:56.25%;
+        }
+        .video iframe{
+            position:absolute;
+            top:0;
+            right:0;
+            width:100%;
+            height:100%;
+        }
     </style>
 </head>
 <body>
@@ -22,10 +34,16 @@
                     <h5 class="card-title">micro:bit プログラミング</h5>
                 </div>
                 <div class="card-body">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/Y12Nbmv1eMs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <p>説明</p>
+                    <div class="video">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/Y12Nbmv1eMs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <p><br>マイコンボードの「micro:bit」を搭載できるプログラミング･フォロを、タブレット端末とBluetoothで接続し、タブレット端末から無線で操作できるようにしました。</p>
+                    <p>micro:bit ･･･ MakeCodeで作成。起動時にBluetoothサービスを起動させる。<br>
+                    操作アプリ ･･･ 開発言語Python。アプリ「Pythonista3」で作成しました。</p>
+                    <a href="https://github.com/hama28/Microbit" target="blank" class="btn btn-primary"><span class="fa fa-github"></span>ソースコード</a>
                 </div>
             </div>
+            <a class="btn btn-primary mt-5" href="/portfolio" role="button">ポートフォリオサイトに戻る</a>
         </div>
     </div>
 </div>
